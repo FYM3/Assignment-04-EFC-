@@ -82,6 +82,30 @@ namespace Assignment_04_EFC_.AppDbConntext
                 .WithMany(a => a.Transactions)
                 .HasForeignKey(t => t.AccountNumber)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Manager>().HasData(
+                new Manager
+                {
+                    Id = 1,
+                    FullName = "Maged Mohamed",
+                    Email = "maged@bank.com",
+                    PhoneNumber = "01012345678",
+                    HireDate = new DateTime(2018, 5, 1),
+                    Address = "Cairo, Egypt",
+                    DateOfBirth = new DateTime(1980, 2, 15)
+                }
+                );
+
+            modelBuilder.Entity<Branch>().HasData(
+                new Branch
+                {
+                    Code = "CAI-01",
+                    Name = "Cairo Main Branch",
+                    Address = "Tahrir Square, Cairo",
+                    PhoneNumber = "022345678",
+                    ManagerId = 1
+                }
+            );
         }
     }
 }

@@ -85,6 +85,16 @@ namespace Assignment_04_EFC_.Migrations
                         .HasFilter("[ManagerId] IS NOT NULL");
 
                     b.ToTable("Branches");
+
+                    b.HasData(
+                        new
+                        {
+                            Code = "CAI-01",
+                            Address = "Tahrir Square, Cairo",
+                            ManagerId = 1,
+                            Name = "Cairo Main Branch",
+                            PhoneNumber = "022345678"
+                        });
                 });
 
             modelBuilder.Entity("Assignment_04_EFC_.Models.Customer", b =>
@@ -195,6 +205,18 @@ namespace Assignment_04_EFC_.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Managers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Cairo, Egypt",
+                            DateOfBirth = new DateTime(1980, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "maged@bank.com",
+                            FullName = "Maged Mohamed",
+                            HireDate = new DateTime(2018, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PhoneNumber = "01012345678"
+                        });
                 });
 
             modelBuilder.Entity("Assignment_04_EFC_.Models.Transaction", b =>
